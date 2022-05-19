@@ -61,33 +61,52 @@ class Education extends Component {
             showForm,
         } = this.state
         return (
-            <div>
+            <div className="box">
+                <div className="title">Educational Experience</div>
                 {showForm ? (
-                    <form onSubmit={this.submitEducation}>
-                        <div>Educational Experience:</div>
-                        <label htmlFor="school">School Name:</label>
+                    <form
+                        onSubmit={this.submitEducation}
+                        className="education-form"
+                    >
+                        <label htmlFor="school" className="school">
+                            School Name:
+                        </label>
                         <input
                             type="text"
                             id="school"
                             value={school}
                             onChange={this.handleChangeSchool}
+                            placeholder="School Name"
                         />
-                        <label htmlFor="study">Title of Study:</label>
+                        <label htmlFor="study" className="study">
+                            Title of Study:
+                        </label>
                         <input
                             type="text"
                             id="study"
                             value={study}
                             onChange={this.handleChangeStudy}
+                            placeholder="Title of Study"
                         />
+                        <label htmlFor="dateOfStudy" className="dateOfStudy">
+                            Date of Study:
+                        </label>
                         <input
                             type="date"
+                            id="dateOfStudy"
                             value={dateOfStudy}
                             onChange={this.handleChangeDate}
                         />
-                        <button type="submit">Submit</button>
+                        <button type="submit" className="education-submit">
+                            Submit Education
+                        </button>
                     </form>
                 ) : null}
-                <button type="button" onClick={this.toggleForm}>
+                <button
+                    type="button"
+                    onClick={this.toggleForm}
+                    className="edit-btn"
+                >
                     + Educational Experience
                 </button>
                 <EducationProps

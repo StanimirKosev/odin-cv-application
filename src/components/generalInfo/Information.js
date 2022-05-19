@@ -40,7 +40,7 @@ class Information extends Component {
             nameSubmit: this.state.name,
             emailSubmit: this.state.email,
             phoneSubmit: this.state.phone,
-            showForm: !this.state.showForm, // hide form on submission
+            showForm: !this.state.showForm,
         })
     }
 
@@ -61,35 +61,48 @@ class Information extends Component {
             showForm,
         } = this.state
         return (
-            <div>
+            <div className="box">
+                <div className="title">General Information</div>
                 {showForm ? (
-                    <form onSubmit={this.submitInfo}>
-                        <div>Personal Information</div>
-                        <label htmlFor="name">Add Name:</label>
+                    <form onSubmit={this.submitInfo} className="info-form">
+                        <label htmlFor="name" className="name">
+                            Add Name:
+                        </label>
                         <input
                             id="name"
                             type="text"
                             value={name}
                             onChange={this.handleChangeName}
+                            placeholder="First and last name"
                         />
-                        <label htmlFor="email">Add Email:</label>
+                        <label htmlFor="email" className="email">
+                            Add Email:
+                        </label>
                         <input
                             id="email"
                             type="text"
                             value={email}
                             onChange={this.handleChangeEmail}
+                            placeholder="...@gmail.com"
                         />
-                        <label htmlFor="phone-num">Add Phone:</label>
+                        <label htmlFor="phone-num" className="phone">
+                            Add Phone:
+                        </label>
                         <input
                             id="phone-num"
                             type="text"
                             value={phone}
                             onChange={this.handleChangePhone}
+                            placeholder="Phone Number"
                         />
-                        <button type="submit">Submit</button>
+                        <button type="submit">Submit Information</button>
                     </form>
                 ) : null}
-                <button type="button" onClick={this.formToggle}>
+                <button
+                    type="button"
+                    onClick={this.formToggle}
+                    className="edit-btn"
+                >
                     + General Information
                 </button>
                 <InformationProps

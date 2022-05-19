@@ -8,7 +8,7 @@ class EducationProps extends Component {
     render() {
         const { school, study, dateOfStudy } = this.props
         return (
-            <div>
+            <div className="education-submitted">
                 <div>{school}</div>
                 <div>{study}</div>
                 <div>{dateOfStudy}</div>

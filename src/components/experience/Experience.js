@@ -83,46 +83,70 @@ class Experience extends Component {
             showForm,
         } = this.state
         return (
-            <div>
+            <div className="box">
+                <div className="title">Practical Experience</div>
                 {showForm ? (
-                    <form onSubmit={this.submitExperience}>
-                        <div>Educational Experience:</div>
-                        <label htmlFor="company">Company Name:</label>
+                    <form
+                        onSubmit={this.submitExperience}
+                        className="experience-form"
+                    >
+                        <label htmlFor="company" className="company">
+                            Company Name:
+                        </label>
                         <input
                             type="text"
                             id="company"
                             value={company}
                             onChange={this.handleChangeCompany}
+                            placeholder="Company Name"
                         />
-                        <label htmlFor="position">Position Title:</label>
+                        <label htmlFor="position" className="position">
+                            Position Title:
+                        </label>
                         <input
                             type="text"
                             id="school"
                             value={position}
                             onChange={this.handleChangePosition}
+                            placeholder="Position Title"
                         />
-                        <label htmlFor="task">Main Task of Job:</label>
+                        <label htmlFor="task" className="task">
+                            Main Task of Job:
+                        </label>
                         <input
                             type="text"
                             id="task"
                             value={task}
                             onChange={this.handleChangeTask}
+                            placeholder="Main Task of Job"
                         />
+                        <label htmlFor="dateStart" className="dateStart">
+                            Date Started Working:
+                        </label>
                         <input
                             type="date"
+                            id="dateStart"
                             value={dateStart}
                             onChange={this.handleChangeDateStart}
                         />
+                        <label htmlFor="dateStop" className="dateStop">
+                            Date Stopped Working:
+                        </label>
                         <input
                             type="date"
+                            id="dateStop"
                             value={dateEnd}
                             onChange={this.handleChangeDateEnd}
                         />
-                        <button type="submit">Submit</button>
+                        <button type="submit">Submit Experience</button>
                     </form>
                 ) : null}
-                <button type="button" onClick={this.toggleForm}>
-                    + Educational Experience
+                <button
+                    type="button"
+                    onClick={this.toggleForm}
+                    className="edit-btn"
+                >
+                    + Practical Experience
                 </button>
                 <ExperienceProps
                     company={companySubmit}

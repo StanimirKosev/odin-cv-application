@@ -8,7 +8,7 @@ class InformationProps extends Component {
     render() {
         const { name, email, phone } = this.props
         return (
-            <div>
+            <div className="info-submitted">
                 <div className="name">{name}</div>
                 <div className="email">{email}</div>
                 <div className="phone-num">{phone}</div>

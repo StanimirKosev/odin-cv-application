@@ -8,7 +8,7 @@ class ExperienceProps extends Component {
     render() {
         const { company, position, task, dateStart, dateEnd } = this.props
         return (
-            <div>
+            <div className="exp-submitted">
                 <div>{company}</div>
                 <div>{position}</div>
                 <div>{task}</div>
