@@ -1,0 +1,27 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest"
+    },
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-filename-extension": "off",
+        "react/prefer-stateless-function": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/self-closing-comp": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
+        "react/destructuring-assignment": "off",
+        "no-useless-constructor": "off",
+        "react/prop-types": "off",
+        "react/no-access-state-in-setstate": "off"
+    }
+}
