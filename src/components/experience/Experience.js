@@ -1,163 +1,105 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import ExperienceProps from './ExperienceProps'
 
-class Experience extends Component {
-    constructor(props) {
-        super(props)
+export default function Experience() {
+    const [company, setCompany] = useState('')
+    const [position, setPosition] = useState('')
+    const [task, setTask] = useState('')
+    const [dateStart, setDateStart] = useState('')
+    const [dateEnd, setDateEnd] = useState('')
+    const [companySubmit, setCompanySubmit] = useState('')
+    const [positionSubmit, setPositionSubmit] = useState('')
+    const [taskSubmit, setTaskSubmit] = useState('')
+    const [dateStartSubmit, setDateStartSubmit] = useState('')
+    const [dateEndSubmit, setDateEndSubmit] = useState('')
+    const [showForm, toggleShowForm] = useState(false)
 
-        this.state = {
-            company: '',
-            companySubmit: '',
-            position: '',
-            positionSubmit: '',
-            task: '',
-            taskSubmit: '',
-            dateStart: '',
-            dateStartSubmit: '',
-            dateEnd: '',
-            dateEndSubmit: '',
-            showForm: false,
-        }
-    }
-
-    handleChangeCompany = (e) => {
-        this.setState({
-            company: e.target.value,
-        })
-    }
-
-    handleChangePosition = (e) => {
-        this.setState({
-            position: e.target.value,
-        })
-    }
-
-    handleChangeTask = (e) => {
-        this.setState({
-            task: e.target.value,
-        })
-    }
-
-    handleChangeDateStart = (e) => {
-        this.setState({
-            dateStart: e.target.value,
-        })
-    }
-
-    handleChangeDateEnd = (e) => {
-        this.setState({
-            dateEnd: e.target.value,
-        })
-    }
-
-    submitExperience = (e) => {
-        e.preventDefault()
-        this.setState({
-            companySubmit: this.state.company,
-            positionSubmit: this.state.position,
-            taskSubmit: this.state.task,
-            dateStartSubmit: this.state.dateStart,
-            dateEndSubmit: this.state.dateEnd,
-            showForm: !this.state.showForm,
-        })
-    }
-
-    toggleForm = () => {
-        this.setState({
-            showForm: !this.state.showForm,
-        })
-    }
-
-    render() {
-        const {
-            company,
-            companySubmit,
-            position,
-            positionSubmit,
-            task,
-            taskSubmit,
-            dateStart,
-            dateStartSubmit,
-            dateEnd,
-            dateEndSubmit,
-            showForm,
-        } = this.state
-        return (
-            <div className="box">
-                <div className="title">Practical Experience</div>
-                {showForm ? (
-                    <form
-                        onSubmit={this.submitExperience}
-                        className="experience-form"
-                    >
-                        <label htmlFor="company" className="company">
-                            Company Name:
-                        </label>
-                        <input
-                            type="text"
-                            id="company"
-                            value={company}
-                            onChange={this.handleChangeCompany}
-                            placeholder="Company Name"
-                        />
-                        <label htmlFor="position" className="position">
-                            Position Title:
-                        </label>
-                        <input
-                            type="text"
-                            id="school"
-                            value={position}
-                            onChange={this.handleChangePosition}
-                            placeholder="Position Title"
-                        />
-                        <label htmlFor="task" className="task">
-                            Main Task of Job:
-                        </label>
-                        <input
-                            type="text"
-                            id="task"
-                            value={task}
-                            onChange={this.handleChangeTask}
-                            placeholder="Main Task of Job"
-                        />
-                        <label htmlFor="dateStart" className="dateStart">
-                            Date Started Working:
-                        </label>
-                        <input
-                            type="date"
-                            id="dateStart"
-                            value={dateStart}
-                            onChange={this.handleChangeDateStart}
-                        />
-                        <label htmlFor="dateStop" className="dateStop">
-                            Date Stopped Working:
-                        </label>
-                        <input
-                            type="date"
-                            id="dateStop"
-                            value={dateEnd}
-                            onChange={this.handleChangeDateEnd}
-                        />
-                        <button type="submit">Submit Experience</button>
-                    </form>
-                ) : null}
-                <button
-                    type="button"
-                    onClick={this.toggleForm}
-                    className="edit-btn"
+    return (
+        <div className="box">
+            <div className="title">Practical Experience</div>
+            {showForm ? (
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        setCompanySubmit(`Company: ${company}`)
+                        setPositionSubmit(`Position: ${position}`)
+                        setTaskSubmit(`Main Task of Job: ${task}`)
+                        setDateStartSubmit(`Date Started Working ${dateStart}`)
+                        setDateEndSubmit(`Date Stopped Working ${dateEnd}`)
+                        toggleShowForm(!showForm)
+                    }}
+                    className="experience-form"
                 >
-                    + Practical Experience
-                </button>
-                <ExperienceProps
-                    company={companySubmit}
-                    position={positionSubmit}
-                    task={taskSubmit}
-                    dateStart={dateStartSubmit}
-                    dateEnd={dateEndSubmit}
-                />
-            </div>
-        )
-    }
+                    <label htmlFor="company" className="company">
+                        Company Name:
+                    </label>
+                    <input
+                        type="text"
+                        id="company"
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                        placeholder="Company Name"
+                        required
+                    />
+                    <label htmlFor="position" className="position">
+                        Position Title:
+                    </label>
+                    <input
+                        type="text"
+                        id="position"
+                        value={position}
+                        onChange={(e) => setPosition(e.target.value)}
+                        placeholder="Position Title"
+                        required
+                    />
+                    <label htmlFor="task" className="task">
+                        Main Task of Job:
+                    </label>
+                    <input
+                        type="text"
+                        id="task"
+                        value={task}
+                        onChange={(e) => setTask(e.target.value)}
+                        placeholder="Main Task of Job"
+                        required
+                    />
+                    <label htmlFor="dateStart" className="dateStart">
+                        Date Started Working:
+                    </label>
+                    <input
+                        type="date"
+                        id="dateStart"
+                        value={dateStart}
+                        onChange={(e) => setDateStart(e.target.value)}
+                        required
+                    />
+                    <label htmlFor="dateStop" className="dateStop">
+                        Date Stopped Working:
+                    </label>
+                    <input
+                        type="date"
+                        id="dateStop"
+                        value={dateEnd}
+                        onChange={(e) => setDateEnd(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Submit Experience</button>
+                </form>
+            ) : null}
+            <button
+                type="button"
+                onClick={() => toggleShowForm(!showForm)}
+                className="edit-btn"
+            >
+                + Practical Experience
+            </button>
+            <ExperienceProps
+                company={companySubmit}
+                position={positionSubmit}
+                task={taskSubmit}
+                dateStart={dateStartSubmit}
+                dateEnd={dateEndSubmit}
+            />
+        </div>
+    )
 }
-
-export default Experience

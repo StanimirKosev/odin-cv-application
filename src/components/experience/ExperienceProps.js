@@ -1,22 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class ExperienceProps extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        const { company, position, task, dateStart, dateEnd } = this.props
-        return (
-            <div className="exp-submitted">
-                <div>{company}</div>
-                <div>{position}</div>
-                <div>{task}</div>
-                <div>{dateStart}</div>
-                <div>{dateEnd}</div>
-            </div>
-        )
-    }
+export default function ExperienceProps({
+    company,
+    position,
+    task,
+    dateStart,
+    dateEnd,
+}) {
+    return (
+        <div className="exp-submitted">
+            <div className="submitted-text">{company}</div>
+            <div className="submitted-text">{position}</div>
+            <div className="submitted-text">{task}</div>
+            <div className="submitted-text">{dateStart}</div>
+            <div className="submitted-text">{dateEnd}</div>
+        </div>
+    )
 }
-
-export default ExperienceProps

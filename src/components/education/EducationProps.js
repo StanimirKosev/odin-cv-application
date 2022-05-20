@@ -1,20 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class EducationProps extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        const { school, study, dateOfStudy } = this.props
-        return (
-            <div className="education-submitted">
-                <div>{school}</div>
-                <div>{study}</div>
-                <div>{dateOfStudy}</div>
-            </div>
-        )
-    }
+export default function EducationProps({ school, study, dateOfStudy }) {
+    return (
+        <div className="education-submitted">
+            <div className="submitted-text">{school}</div>
+            <div className="submitted-text">{study}</div>
+            <div className="submitted-text">{dateOfStudy}</div>
+        </div>
+    )
 }
-
-export default EducationProps
